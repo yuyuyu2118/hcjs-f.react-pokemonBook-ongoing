@@ -5,7 +5,7 @@ import Card from "./components/Card/Card";
 import NavBar from "./components/NavBar/NavBar";
 
 function App() {
-  const initialURL = "https://pokeapi.co/api/v2/pokemon";
+  const initialURL = "https://pokeapi.co/api/v2/pokemon?limit=30";
   const [loading, setLoading] = useState(true);
   const [pokemonData, setPokemonData] = useState([]);
   const [nextURL, setNextURL] = useState("");
@@ -62,6 +62,10 @@ function App() {
           <h1>ロード中・・・</h1>
         ) : (
           <>
+            <div className="btn">
+              <button onClick={handlePrevPage}>前へ</button>
+              <button onClick={handleNextPage}>次へ</button>
+            </div>
             <div className="pokemonCardContainer">
               {pokemonData.map((pokemon, i) => {
                 return <Card key={i} pokemon={pokemon} />;
