@@ -73,3 +73,9 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+/* テキスト関連 */
+.cardTypesText{
+  font-size: 24px;
+  
+}

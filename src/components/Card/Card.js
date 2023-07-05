@@ -6,6 +6,8 @@ const Card = ({ pokemon }) => {
   const [showModal, setShowModal] = useState(false);
   const [isHoverable, setIsHoverable] = useState(true);
 
+  let japaneseTypeName;
+
   const dispInfoClick = () => {
     setDispInfo((prevDispInfo) => !prevDispInfo);
   };
@@ -15,6 +17,48 @@ const Card = ({ pokemon }) => {
     setIsHoverable(!isHoverable);
   };
 
+  const typeTranslate = (t) => {
+    let tName;
+    if (t === "normal") {
+      tName = "ノーマル";
+    }else if(t === "fire"){
+      tName = "ほのお";
+    }else if(t === "water"){
+      tName = "みず";
+    }else if(t === "grass"){
+      tName = "くさ";
+    }else if(t === "electric"){
+      tName = "でんき";
+    }else if(t === "ice"){
+      tName = "こおり";
+    }else if(t === "fighting"){
+      tName = "かくとう";
+    }else if(t === "poison"){
+      tName = "どく";
+    }else if(t === "ground"){
+      tName = "じめん";
+    }else if(t === "flying"){
+      tName = "ひこう";
+    }else if(t === "psychic"){
+      tName = "エスパー";
+    }else if(t === "bug"){
+      tName = "むし";
+    }else if(t === "rock"){
+      tName = "いわ";
+    }else if(t === "ghost"){
+      tName = "ゴースト";
+    }else if(t === "dragon"){
+      tName = "ドラゴン";
+    }else if(t === "dark"){
+      tName = "あく";
+    }else if(t === "steel"){
+      tName = "はがね";
+    }else if(t === "fairy"){
+      tName = "フェアリー";
+    }
+    return tName;
+  };
+
   return (
     <>
       {/* <div className="cardHover"></div> */}
@@ -22,6 +66,7 @@ const Card = ({ pokemon }) => {
         <div className="cardImage">
           <img
             src={pokemon.sprites.front_default}
+            //src={pokemon.sprites.front_shiny}
             alt="pokemon"
             onClick={handleImageClick}
           ></img>
@@ -33,11 +78,12 @@ const Card = ({ pokemon }) => {
         {dispInfo ? (
           <>
             <div className="cardTypes">
-              <div>タイプ</div>
+              <div className="cardTypesText">タイプ</div>
               {pokemon.types.map((type) => {
                 return (
                   <div key={type.type.name}>
-                    <span className="typeName">{type.type.name}</span>
+                    {/* <span className="typeName">{type.type.name}</span> */}
+                    <span className="typeName">{typeTranslate(type.type.name)}</span>
                   </div>
                 );
               })}
