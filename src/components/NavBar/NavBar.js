@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import "./NavBar.css";
 
 const NavBar = () => {
-  return ( 
-    <div>NavBar</div>
-  )
-}
+  const navBarClick = () => {};
 
-export default NavBar
+  return (
+    //TODO: クリックをすると、図鑑が変わるように変更
+    <nav className="navBar" onClick={navBarClick}>
+      ← ポケモン図鑑(1/20) →
+    </nav>
+  );
+};
+
+export default NavBar;

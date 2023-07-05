@@ -1,8 +1,12 @@
 .card {
   width: 290px;
+  height: 400px;
+  /* boxShadow */
   box-shadow: 5px 15px 31px -3px #777777;
   border-radius: 10px;
+  
   background: #fff;
+  margin: 10px;
 }
 
 .cardName{
